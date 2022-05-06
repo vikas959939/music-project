@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Sansita+Swashed&family=Water+Brush&display=swap');
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,33 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.sort_by{
+  margin-right: 100px;
+}
+
+.searchBar{
+  width: 500px;
+  margin-left: 150px;
+  border-radius: 30px;
+}
+
+.lat_col{
+  font-family: 'Lobster', cursive;
+font-family: 'Sansita Swashed', cursive;
+font-family: 'Water Brush', cursive;
+font-size: 3em;
+color: orangered;
+}
+
+.card_css{
+  width: 18rem;
+}
+
+.player_img{
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  margin: 20px;
 }

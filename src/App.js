@@ -1,23 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import Player from './component/Player';
+import Home from './component/Home';
+import { myMusic } from './component/Song';
 
 function App() {
+
+  const [songs, setSongs] = useState(myMusic);
+
+  const [currentSongIndex, setcurrentSongIndex] = useState(0);
+  const [nextSongIndex, setnextSongIndex] = useState(0);
+ 
+
+  useEffect(() => {
+    setnextSongIndex(()=>{
+      if(currentSongIndex + 1 > songs.length - 1){
+        return 0;
+      }else{
+        return currentSongIndex + 1;
+      }
+    })
+    
+  }, [currentSongIndex]);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <Home setcurrentSongIndex={setcurrentSongIndex} setSongs={setSongs} setnextSongIndex={setnextSongIndex} currentSongIndex={currentSongIndex}/>
+      <Player currentSongIndex = {currentSongIndex} setcurrentSongIndex={setcurrentSongIndex}
+        nextSongIndex={nextSongIndex} songs={songs}
+      />
     </div>
   );
 }
